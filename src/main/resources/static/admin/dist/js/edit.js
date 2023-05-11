@@ -1,4 +1,4 @@
-var blogEditor;
+let blogEditor;
 // Tags Input
 $('#blogTags').tagsInput({
     width: '100%',
@@ -26,25 +26,25 @@ $(function () {
 
     // 编辑器粘贴上传
     document.getElementById("blog-editormd").addEventListener("paste", function (e) {
-        var clipboardData = e.clipboardData;
+        const clipboardData = e.clipboardData;
         if (clipboardData) {
-            var items = clipboardData.items;
+            const items = clipboardData.items;
             if (items && items.length > 0) {
-                for (var item of items) {
+                for (const item of items) {
                     if (item.type.startsWith("image/")) {
-                        var file = item.getAsFile();
+                        const file = item.getAsFile();
                         if (!file) {
                             alert("请上传有效文件");
                             return;
                         }
-                        var formData = new FormData();
+                        const formData = new FormData();
                         formData.append('file', file);
-                        var xhr = new XMLHttpRequest();
+                        const xhr = new XMLHttpRequest();
                         xhr.open("POST", "/admin/upload/file");
                         xhr.onreadystatechange = function () {
-                            if (xhr.readyState == 4 && xhr.status == 200) {
-                                var json = JSON.parse(xhr.responseText);
-                                if (json.resultCode == 200) {
+                            if (xhr.readyState === 4 && xhr.status === 200) {
+                                const json = JSON.parse(xhr.responseText);
+                                if (json.resultCode === 200) {
                                     blogEditor.insertValue("![](" + json.data + ")");
                                 } else {
                                     alert("上传失败");
@@ -70,9 +70,10 @@ $(function () {
             }
         },
         onComplete: function (file, r) {
-            if (r != null && r.resultCode == 200) {
-                $("#blogCoverImage").attr("src", r.data);
-                $("#blogCoverImage").attr("style", "width: 128px;height: 128px;display:block;");
+            if (r != null && r.resultCode === 200) {
+                let img = $("#blogCoverImage")
+                img.attr("src", r.data);
+                img.attr("style", "width: 128px;height: 128px;display:block;");
                 return false;
             } else {
                 alert("error");
@@ -82,11 +83,11 @@ $(function () {
 });
 
 $('#confirmButton').click(function () {
-    var blogTitle = $('#blogName').val();
-    var blogSubUrl = $('#blogSubUrl').val();
-    var blogCategoryId = $('#blogCategoryId').val();
-    var blogTags = $('#blogTags').val();
-    var blogContent = blogEditor.getMarkdown();
+    const blogTitle = $('#blogName').val();
+    const blogSubUrl = $('#blogSubUrl').val();
+    const blogCategoryId = $('#blogCategoryId').val();
+    const blogTags = $('#blogTags').val();
+    const blogContent = blogEditor.getMarkdown();
     if (isNull(blogTitle)) {
         swal("请输入文章标题", {
             icon: "error",
@@ -139,24 +140,24 @@ $('#confirmButton').click(function () {
 });
 
 $('#saveButton').click(function () {
-    var blogId = $('#blogId').val();
-    var blogTitle = $('#blogName').val();
-    var blogSubUrl = $('#blogSubUrl').val();
-    var blogCategoryId = $('#blogCategoryId').val();
-    var blogTags = $('#blogTags').val();
-    var blogContent = blogEditor.getMarkdown();
-    var blogCoverImage = $('#blogCoverImage')[0].src;
-    var blogStatus = $("input[name='blogStatus']:checked").val();
-    var enableComment = $("input[name='enableComment']:checked").val();
-    if (isNull(blogCoverImage) || blogCoverImage.indexOf('img-upload') != -1) {
+    const blogId = $('#blogId').val();
+    const blogTitle = $('#blogName').val();
+    const blogSubUrl = $('#blogSubUrl').val();
+    const blogCategoryId = $('#blogCategoryId').val();
+    const blogTags = $('#blogTags').val();
+    const blogContent = blogEditor.getMarkdown();
+    const blogCoverImage = $('#blogCoverImage')[0].src;
+    const blogStatus = $("input[name='blogStatus']:checked").val();
+    const enableComment = $("input[name='enableComment']:checked").val();
+    if (isNull(blogCoverImage) || blogCoverImage.indexOf('img-upload') !== -1) {
         swal("封面图片不能为空", {
             icon: "error",
         });
         return;
     }
-    var url = '/admin/blogs/save';
-    var swlMessage = '保存成功';
-    var data = {
+    let url = '/admin/blogs/save';
+    let swlMessage = '保存成功';
+    let data = {
         "blogTitle": blogTitle, "blogSubUrl": blogSubUrl, "blogCategoryId": blogCategoryId,
         "blogTags": blogTags, "blogContent": blogContent, "blogCoverImage": blogCoverImage, "blogStatus": blogStatus,
         "enableComment": enableComment
@@ -182,7 +183,7 @@ $('#saveButton').click(function () {
         url: url,
         data: data,
         success: function (result) {
-            if (result.resultCode == 200) {
+            if (result.resultCode === 200) {
                 $('#articleModal').modal('hide');
                 swal({
                     title: swlMessage,
@@ -201,7 +202,6 @@ $('#saveButton').click(function () {
                     icon: "error",
                 });
             }
-            ;
         },
         error: function () {
             swal("操作失败", {
@@ -219,7 +219,7 @@ $('#cancelButton').click(function () {
  * 随机封面功能
  */
 $('#randomCoverImage').click(function () {
-    let image=$("#blogCoverImage")
+    let image = $("#blogCoverImage")
     image.attr("src", '/admin/dist/img/rand/logo.png');
     image.attr("style", "width:160px ;height: 120px;display:block;");
 });

@@ -14,23 +14,20 @@ import java.util.stream.Collectors;
 
 @Service
 public class ConfigServiceImpl implements ConfigService {
-    @Autowired
-    private BlogConfigMapper configMapper;
-
     public static final String websiteName = "殊怀丶博客";
     public static final String websiteDescription = "";
     public static final String websiteLogo = "/admin/dist/img/logo.png";
     public static final String websiteIcon = "/admin/dist/img/logo.png";
-
     public static final String yourAvatar = "/admin/dist/img/logo.png";
     public static final String yourEmail = "lvzhihe_123@qq.com";
     public static final String yourName = "殊怀丶";
-
     public static final String footerAbout = "殊怀丶博客";
     public static final String footerICP = "";
     public static final String footerCopyRight = "殊怀丶";
     public static final String footerPoweredBy = "http://lvshuhuai.cn/";
     public static final String footerPoweredByURL = "http://lvshuhuai.cn/";
+    @Autowired
+    private BlogConfigMapper configMapper;
 
     @Override
     public int updateConfig(String configName, String configValue) {

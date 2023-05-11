@@ -2,10 +2,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="header-fragment">
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <title>my personal blog | 后台管理系统</title>
     <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
     <!-- Font Awesome -->
     <link rel="shortcut icon" th:href="@{/admin/dist/img/favicon.png}"/>
     <link rel="stylesheet" th:href="@{/admin/dist/css/font-awesome.min.css}">
@@ -26,7 +26,7 @@
             <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a th:href="@{/admin/index}" class="nav-link">Dashboard</a>
+            <a class="nav-link" th:href="@{/admin/index}">Dashboard</a>
         </li>
     </ul>
     <!-- Right navbar links -->
@@ -42,17 +42,17 @@
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                 <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
+                <a class="dropdown-item" href="#">
                     <i class="fa fa-user-o mr-2"></i> 姓名
                     <span class="float-right text-muted text-sm">十三 / 13</span>
                 </a>
                 <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
+                <a class="dropdown-item" href="#">
                     <i class="fa fa-user-secret mr-2"></i> 身份
                     <span class="float-right text-muted text-sm">Java开发工程师</span>
                 </a>
                 <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
+                <a class="dropdown-item" href="#">
                     <i class="fa fa-address-card mr-2"></i> 邮箱
                     <span class="float-right text-muted text-sm">2449207463@qq.com</span>
                 </a>

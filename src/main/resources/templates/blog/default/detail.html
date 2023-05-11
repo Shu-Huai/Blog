@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <title th:text="${configurations.get('websiteName')}+' | '+${pageName}">详情页</title>
     <meta name="description" th:content="${configurations.get('websiteDescription')}">
-    <meta name="viewport" content="width=device-width">
+    <meta content="width=device-width" name="viewport">
     <link rel="shortcut icon" th:href="@{${configurations.get('websiteIcon')}}"/>
     <!-- Bootstrap styles -->
     <link rel="stylesheet" th:href="@{/blog/default/css/bootstrap.min.css}">
     <!-- Font-Awesome -->
     <link rel="stylesheet" th:href="@{/blog/default/css/font-awesome/css/font-awesome.min.css}">
     <!-- Styles -->
-    <link rel="stylesheet" th:href="@{/blog/default/css/style.css}" id="theme-styles">
+    <link id="theme-styles" rel="stylesheet" th:href="@{/blog/default/css/style.css}">
     <!-- highlight -->
     <link rel="stylesheet" th:href="@{/blog/plugins/highlight/styles/github.css}">
     <!-- dictionary -->
@@ -26,11 +26,11 @@
 <header>
     <div class="widewrapper masthead">
         <div class="container">
-            <a th:href="@{/index}" id="logo">
-                <img th:src="@{${configurations.get('websiteLogo')}}" class="logo-img" alt="my personal blog">
+            <a id="logo" th:href="@{/index}">
+                <img alt="my personal blog" class="logo-img" th:src="@{${configurations.get('websiteLogo')}}">
             </a>
-            <div id="mobile-nav-toggle" class="pull-right">
-                <a href="#" data-toggle="collapse" data-target=".clean-nav .navbar-collapse">
+            <div class="pull-right" id="mobile-nav-toggle">
+                <a data-target=".clean-nav .navbar-collapse" data-toggle="collapse" href="#">
                     <i class="fa fa-bars"></i>
                 </a>
             </div>
@@ -57,8 +57,8 @@
     <div class="widewrapper subheader">
         <div class="container">
             <div class="clean-breadcrumb">
-                <img th:src="@{${blogDetailVO.blogCategoryIcon}}" style=" margin-top: -4px;height: 16px;width: 16px;"
-                     alt="my personal blog">
+                <img alt="my personal blog" style=" margin-top: -4px;height: 16px;width: 16px;"
+                     th:src="@{${blogDetailVO.blogCategoryIcon}}">
                 <a href="#">&nbsp;<th:block th:text="${blogDetailVO.blogCategoryName}"></th:block>
                 </a>
             </div>
@@ -97,14 +97,15 @@
                     </div>
                 </article>
                 <aside class="blog-rights clearfix">
-                    <p>本站文章除注明转载/出处外，皆为作者原创，欢迎转载，但未经作者同意必须保留此段声明，且在文章页面明显位置给出原文链接，否则保留追究法律责任的权利。</p>
+                    <p>
+                        本站文章除注明转载/出处外，皆为作者原创，欢迎转载，但未经作者同意必须保留此段声明，且在文章页面明显位置给出原文链接，否则保留追究法律责任的权利。</p>
                 </aside>
                 <aside class="comments" id="comments">
                     <th:block th:if="${null != commentPageResult}">
                         <th:block th:each="comment,iterStat : ${commentPageResult.list}">
                             <article class="comment">
                                 <header class="clearfix">
-                                    <img th:src="@{/blog/default/img/avatar.png}" class="avatar">
+                                    <img class="avatar" th:src="@{/blog/default/img/avatar.png}">
                                     <div class="meta">
                                         <h3 th:text="${comment.commentator}"></h3>
                                         <span class="date">
@@ -120,8 +121,8 @@
                             <th:block th:unless="${#strings.isEmpty(comment.replyBody)}">
                                 <article class="comment reply">
                                     <header class="clearfix">
-                                        <img th:src="@{${configurations.get('yourAvatar')}}"
-                                             style="float: left;border-radius: 100px;width: 50px;">
+                                        <img style="float: left;border-radius: 100px;width: 50px;"
+                                             th:src="@{${configurations.get('yourAvatar')}}">
                                         <div class="meta2">
                                             <h3 th:text="${configurations.get('yourName')}">十三</h3>
                                             <span class="date">
@@ -170,47 +171,52 @@
                 </aside>
                 <th:block th:if="${blogDetailVO.enableComment==0}">
 
-                <aside class="create-comment" id="create-comment">
-                    <hr>
-                    <h2><i class="fa fa-pencil"></i> 添加评论</h2>
-                    <form action="#" method="get" onsubmit="return false;" accept-charset="utf-8">
-                        <input type="hidden" id="blogId" name="blogId" th:value="${blogDetailVO.blogId}"></input>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <input type="text" name="commentator" id="commentator" placeholder="(*必填)怎么称呼你?"
-                                       class="form-control input-lg">
-                            </div>
-                            <div class="col-md-6">
-                                <input type="email" name="email" id="email" placeholder="(*必填)你的联系邮箱"
-                                       class="form-control input-lg">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <input type="text" name="websiteUrl" id="websiteUrl" placeholder="你的网站地址(可不填)"
-                                       class="form-control input-lg">
-                            </div>
-                            <div class="col-md-6">
-                                <div class="col-md-4">
-                                    <img alt="单击图片刷新！" class="pointer" style="margin-top: 15px; border-radius: 25px;"
-                                         th:src="@{/common/kaptcha}"
-                                         onclick="this.src='/common/kaptcha?d='+new Date()*1">
+                    <aside class="create-comment" id="create-comment">
+                        <hr>
+                        <h2><i class="fa fa-pencil"></i> 添加评论</h2>
+                        <form accept-charset="utf-8" action="#" method="get" onsubmit="return false;">
+                            <input id="blogId" name="blogId" th:value="${blogDetailVO.blogId}" type="hidden"></input>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input class="form-control input-lg" id="commentator" name="commentator"
+                                           placeholder="(*必填)怎么称呼你?"
+                                           type="text">
                                 </div>
-                                <div class="col-md-8">
-                                    <input type="text" class="form-control input-lg" name="verifyCode" id="verifyCode"
-                                           placeholder="(*必填)请输入验证码"
-                                           required="true">
+                                <div class="col-md-6">
+                                    <input class="form-control input-lg" id="email" name="email" placeholder="(*必填)你的联系邮箱"
+                                           type="email">
                                 </div>
                             </div>
-                        </div>
-                        <textarea rows="10" name="commentBody" id="commentBody" placeholder="(*必填)请输入你的评论"
-                                  class="form-control input-lg"></textarea>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input class="form-control input-lg" id="websiteUrl" name="websiteUrl"
+                                           placeholder="你的网站地址(可不填)"
+                                           type="text">
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="col-md-4">
+                                        <img alt="单击图片刷新！" class="pointer"
+                                             onclick="this.src='/common/kaptcha?d='+new Date()*1"
+                                             style="margin-top: 15px; border-radius: 25px;"
+                                             th:src="@{/common/kaptcha}">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input class="form-control input-lg" id="verifyCode" name="verifyCode"
+                                               placeholder="(*必填)请输入验证码"
+                                               required="true"
+                                               type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <textarea class="form-control input-lg" id="commentBody" name="commentBody" placeholder="(*必填)请输入你的评论"
+                                      rows="10"></textarea>
 
-                        <div class="buttons clearfix">
-                            <button type="submit" id="commentSubmit" class="btn btn-xlarge btn-clean-one">提交</button>
-                        </div>
-                    </form>
-                </aside>
+                            <div class="buttons clearfix">
+                                <button class="btn btn-xlarge btn-clean-one" id="commentSubmit" type="submit">提交
+                                </button>
+                            </div>
+                        </form>
+                    </aside>
                 </th:block>
                 <p class="back-top" id="back-top" style="display:none"><a href="#top"><span></span></a></p>
             </div>

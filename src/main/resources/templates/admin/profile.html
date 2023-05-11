@@ -24,26 +24,27 @@
                                 <h3 class="card-title">基本信息</h3>
                             </div> <!-- /.card-body -->
                             <div class="card-body">
-                                <form role="form" id="userNameForm">
+                                <form id="userNameForm" role="form">
                                     <div class="form-group col-sm-8">
-                                        <div class="alert alert-danger" id="updateUserName-info" style="display: none;"></div>
+                                        <div class="alert alert-danger" id="updateUserName-info"
+                                             style="display: none;"></div>
                                     </div>
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>登陆名称</label>
-                                        <input type="text" class="form-control" id="loginUserName"
-                                               name="loginUserName"
-                                               placeholder="请输入登陆名称" required="true" th:value="${loginUserName}">
+                                        <input class="form-control" id="loginUserName" name="loginUserName"
+                                               placeholder="请输入登陆名称"
+                                               required="true" th:value="${loginUserName}" type="text">
                                     </div>
                                     <div class="form-group">
                                         <label>昵称</label>
-                                        <input type="text" class="form-control" id="nickName"
-                                               name="nickName"
-                                               placeholder="请输入昵称" required="true" th:value="${nickName}">
+                                        <input class="form-control" id="nickName" name="nickName"
+                                               placeholder="请输入昵称"
+                                               required="true" th:value="${nickName}" type="text">
                                     </div>
                                     <div class="card-footer">
-                                        <button type="button" id="updateUserNameButton" onsubmit="return false;"
-                                                class="btn btn-danger float-right">确认修改
+                                        <button class="btn btn-danger float-right" id="updateUserNameButton" onsubmit="return false;"
+                                                type="button">确认修改
                                         </button>
                                     </div>
                                 </form>
@@ -56,25 +57,26 @@
                                 <h3 class="card-title">修改密码</h3>
                             </div> <!-- /.card-body -->
                             <div class="card-body">
-                                <form role="form" id="userPasswordForm">
+                                <form id="userPasswordForm" role="form">
                                     <div class="form-group col-sm-8">
-                                        <div class="alert alert-danger updatePassword-info" id="updatePassword-info" style="display: none;"></div>
+                                        <div class="alert alert-danger updatePassword-info" id="updatePassword-info"
+                                             style="display: none;"></div>
                                     </div>
                                     <!-- input states -->
                                     <div class="form-group">
                                         <label class="control-label"><i class="fa fa-key"></i> 原密码</label>
-                                        <input type="text" class="form-control" id="originalPassword"
-                                               name="originalPassword"
-                                               placeholder="请输入原密码" required="true">
+                                        <input class="form-control" id="originalPassword" name="originalPassword"
+                                               placeholder="请输入原密码"
+                                               required="true" type="text">
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label"><i class="fa fa-key"></i> 新密码</label>
-                                        <input type="text" class="form-control" id="newPassword" name="newPassword"
-                                               placeholder="请输入新密码" required="true">
+                                        <input class="form-control" id="newPassword" name="newPassword" placeholder="请输入新密码"
+                                               required="true" type="text">
                                     </div>
                                     <div class="card-footer">
-                                        <button type="button" id="updatePasswordButton" onsubmit="return false;"
-                                                class="btn btn-danger float-right">确认修改
+                                        <button class="btn btn-danger float-right" id="updatePasswordButton" onsubmit="return false;"
+                                                type="button">确认修改
                                         </button>
                                     </div>
                                 </form>

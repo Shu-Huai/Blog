@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--  @author 13
-      @qq交流群 796794009
-      @email 2449207463@qq.com
-      @link http://13blog.site -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>com.site.blog.my.core</groupId>
     <artifactId>my-blog</artifactId>
     <version>5.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
-
     <name>my-blog</name>
     <description>your personal blog</description>
-
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -27,7 +20,6 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>17</java.version>
     </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -46,19 +38,16 @@
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>3.0.1</version>
         </dependency>
-        <!-- 验证码 -->
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-captcha</artifactId>
             <version>5.8.7</version>
         </dependency>
-        <!-- commonmark core -->
         <dependency>
             <groupId>com.atlassian.commonmark</groupId>
             <artifactId>commonmark</artifactId>
             <version>0.17.0</version>
         </dependency>
-        <!-- commonmark table -->
         <dependency>
             <groupId>com.atlassian.commonmark</groupId>
             <artifactId>commonmark-ext-gfm-tables</artifactId>
@@ -75,7 +64,6 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
@@ -84,9 +72,4 @@
             </plugin>
         </plugins>
     </build>
-    <!--  @author 13
-          @qq交流群 796794009
-          @email 2449207463@qq.com
-          @link http://13blog.site
-    -->
 </project>

@@ -5,15 +5,15 @@
     <title th:text="|${configurations.get('websiteName')} - ${pageName}|">主页</title>
     <meta name="description" th:content="${configurations.get('websiteDescription')}">
     <link rel="shortcut icon" th:href="@{${configurations.get('websiteIcon')}}"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta http-equiv="Window-target" content="_top"/>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+    <meta content="_top" http-equiv="Window-target"/>
     <link rel="stylesheet" th:href="@{/blog/amaze/css/base.css}">
 </head>
-<nav th:fragment="nav-fragment" class="navbar navbar-default navbar-custom navbar-fixed-top">
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top" th:fragment="nav-fragment">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-for="toggle-items">
+            <button class="navbar-toggle" data-for="toggle-items" type="button">
                 <span class="sr-only"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -22,7 +22,7 @@
             <a class="navbar-brand" href="/" th:text="${configurations.get('websiteName')}">
             </a>
         </div>
-        <div class="navbar-collapse" style="display: none;" id="toggle-items" >
+        <div class="navbar-collapse" id="toggle-items" style="display: none;">
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a th:href="@{/index}">主页</a>
@@ -68,7 +68,7 @@
     </div>
     <!-- /.container -->
 </nav>
-<header th:fragment="header-fragment" class="intro-header"
+<header class="intro-header" th:fragment="header-fragment"
         th:style="'background-image:url(' + @{/blog/amaze/images/header.jpg} + ');'">
     <div class="container">
         <div class="row">

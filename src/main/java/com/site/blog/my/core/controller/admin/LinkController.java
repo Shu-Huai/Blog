@@ -10,8 +10,8 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 /**
@@ -81,11 +81,11 @@ public class LinkController {
     @RequestMapping(value = "/links/update", method = RequestMethod.POST)
     @ResponseBody
     public Result update(@RequestParam("linkId") Integer linkId,
-                       @RequestParam("linkType") Integer linkType,
-                       @RequestParam("linkName") String linkName,
-                       @RequestParam("linkUrl") String linkUrl,
-                       @RequestParam("linkRank") Integer linkRank,
-                       @RequestParam("linkDescription") String linkDescription) {
+                         @RequestParam("linkType") Integer linkType,
+                         @RequestParam("linkName") String linkName,
+                         @RequestParam("linkUrl") String linkUrl,
+                         @RequestParam("linkRank") Integer linkRank,
+                         @RequestParam("linkDescription") String linkDescription) {
         BlogLink tempLink = linkService.selectById(linkId);
         if (tempLink == null) {
             return ResultGenerator.genFailResult("无数据！");

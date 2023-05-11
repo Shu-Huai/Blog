@@ -42,7 +42,7 @@
                             </button>
                         </div>
                         <!-- JqGrid必要DOM,用于创建表格展示列表数据 -->
-                        <table id="jqGrid" class="table table-bordered"></table>
+                        <table class="table table-bordered" id="jqGrid"></table>
                         <!-- JqGrid必要DOM,分页信息区域 -->
                         <div id="jqGridPager"></div>
                     </div><!-- /.card-body -->
@@ -52,27 +52,27 @@
         <!-- /.content -->
         <div class="content">
             <!-- 模态框（Modal） -->
-            <div class="modal fade" id="replyModal" tabindex="-1" role="dialog" aria-labelledby="replyModalLabel">
+            <div aria-labelledby="replyModalLabel" class="modal fade" id="replyModal" role="dialog" tabindex="-1">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span
                                     aria-hidden="true">&times;</span></button>
                             <h6 class="modal-title" id="replyModalLabel">评论回复</h6>
                         </div>
                         <div class="modal-body">
                             <form id="replyForm">
-                                <input type="hidden" class="form-control" id="categoryId" name="categoryId">
+                                <input class="form-control" id="categoryId" name="categoryId" type="hidden">
                                 <div class="form-group">
-                                    <label for="replyBody" class="control-label">回复内容:</label>
-                                    <textarea type="text" class="form-control" id="replyBody" name="replyBody"
-                                              placeholder="请输入回复内容" required="true"></textarea>
+                                    <label class="control-label" for="replyBody">回复内容:</label>
+                                    <textarea class="form-control" id="replyBody" name="replyBody" placeholder="请输入回复内容"
+                                              required="true" type="text"></textarea>
                                 </div>
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                            <button type="button" class="btn btn-primary" id="saveButton">确认</button>
+                            <button class="btn btn-default" data-dismiss="modal" type="button">取消</button>
+                            <button class="btn btn-primary" id="saveButton" type="button">确认</button>
                         </div>
                     </div>
                 </div>

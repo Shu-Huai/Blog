@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="footer">
+<html lang="en" th:fragment="footer" xmlns:th="http://www.thymeleaf.org">
 <body>
 <footer class="container">
     <div class="site-footer">
@@ -10,18 +10,19 @@
             <a href="https://github.com/DONGChuan/Yummy-Jekyll">Yummy Jekyll</a>
             &nbsp;•&nbsp;&copy;&nbsp;<a th:text="${configurations.get('footerAbout')}">your singal blog.</a> &nbsp;•&nbsp;
         </div>
-        <a href="https://github.com/ZHENFENG13" target="_blank" aria-label="view source code">
+        <a aria-label="view source code" href="https://github.com/ZHENFENG13" target="_blank">
             <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
         </a>
         <div class="pull-right">
-            ICP <a href="http://www.beian.miit.gov.cn" th:text="${configurations.get('footerICP')}">浙ICP备 xxxxxx-x号</a>&nbsp;•&nbsp;
+            ICP <a href="http://www.beian.miit.gov.cn" th:text="${configurations.get('footerICP')}">浙ICP备
+            xxxxxx-x号</a>&nbsp;•&nbsp;
             <a href="javascript:window.scrollTo(0,0)">TOP</a>
         </div>
     </div>
     <!-- Third-Party JS -->
-    <script type="text/javascript" th:src="@{/blog/yummy-jekyll/plugins/geopattern/js/geopattern.min.js}"></script>
+    <script th:src="@{/blog/yummy-jekyll/plugins/geopattern/js/geopattern.min.js}" type="text/javascript"></script>
     <!-- My JS -->
-    <script type="text/javascript" th:src="@{/blog/yummy-jekyll/assets/js/script.js}"></script>
+    <script th:src="@{/blog/yummy-jekyll/assets/js/script.js}" type="text/javascript"></script>
 </footer>
 </body>
 </html>

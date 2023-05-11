@@ -3,25 +3,17 @@ package com.site.blog.my.core.controller.admin;
 import cn.hutool.captcha.ShearCaptcha;
 import com.site.blog.my.core.entity.AdminUser;
 import com.site.blog.my.core.service.*;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
-
-/**
- * @author 13
- * @qq交流群 796794009
- * @email 2449207463@qq.com
- * @link http://13blog.site
- */
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
-
     @Resource
     private AdminUserService adminUserService;
     @Resource
@@ -34,7 +26,6 @@ public class AdminController {
     private TagService tagService;
     @Resource
     private CommentService commentService;
-
 
     @GetMapping({"/login"})
     public String login() {
@@ -74,8 +65,6 @@ public class AdminController {
         if (adminUser != null) {
             session.setAttribute("loginUser", adminUser.getNickName());
             session.setAttribute("loginUserId", adminUser.getAdminUserId());
-            //session过期时间设置为7200秒 即两小时
-            //session.setMaxInactiveInterval(60 * 60 * 2);
             return "redirect:/admin/index";
         } else {
             session.setAttribute("errorMsg", "登陆失败");
@@ -105,7 +94,6 @@ public class AdminController {
         }
         Integer loginUserId = (int) request.getSession().getAttribute("loginUserId");
         if (adminUserService.updatePassword(loginUserId, originalPassword, newPassword)) {
-            //修改成功后清空session中的数据，前端控制跳转至登录页
             request.getSession().removeAttribute("loginUserId");
             request.getSession().removeAttribute("loginUser");
             request.getSession().removeAttribute("errorMsg");
